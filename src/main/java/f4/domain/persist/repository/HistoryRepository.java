@@ -7,6 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface HistoryRepository extends JpaRepository<HistoryEntity,Long> {
-
   List<HistoryEntity> findByUserId(long userId);
 }

@@ -1,20 +1,11 @@
 package f4.domain.dto.response;
 
 import javax.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@ToString
-public class ProductDTO {
+import lombok.*;
+
+@Data
+public class ProductDto {
 
   @NotNull
   private Long productId;
