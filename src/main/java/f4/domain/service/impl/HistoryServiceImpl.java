@@ -1,7 +1,7 @@
 package f4.domain.service.impl;
 
 import f4.domain.dto.response.HistoryDto;
-import f4.domain.dto.response.ProductDto;
+import f4.domain.dto.SendToHistoryDto;
 import f4.domain.persist.entity.HistoryEntity;
 import f4.domain.persist.repository.HistoryRepository;
 import f4.domain.service.HistoryService;
@@ -22,20 +22,20 @@ public class HistoryServiceImpl implements HistoryService {
 
   @Override
   @Transactional
-  public void makeAndSave(ProductDto product) {
+  public void makeAndSave(SendToHistoryDto product) {
     repository.save(historyBuilder(product));
   }
 
-  public HistoryEntity historyBuilder(ProductDto product) {
+  public HistoryEntity historyBuilder(SendToHistoryDto product) {
     return HistoryEntity.builder()
         .productId(product.getProductId())
         .productName(product.getProductName())
-        .productImage(product.getProductImage())
+        .productMainImage(product.getProductImage())
         .bidPrice(product.getBidPrice())
         .bidTime(product.getBidTime())
         .userId(product.getBidUserId())
         .bidStatus(product.getBidStatus())
-        .userEmail(product.getUserEmail()).build();
+        .bidUserEmail(product.getUserEmail()).build();
   }
 
   //전체 history list 반환

@@ -23,10 +23,10 @@ public class HistoryEntity {
   private Long productId;
   @Column(name = "product_name", nullable = false)
   private String productName;
-  @Column(name = "product_image", nullable = false)
-  private String productImage;
-  @Column(name = "user_email")
-  private String userEmail;
+  @Column(name = "product_main_image", nullable = false)
+  private String productMainImage;
+  @Column(name = "bid_user_email")
+  private String bidUserEmail;
   @Column(name = "user_id", nullable = false)
   private Long userId;
   @Column(name = "bid_price", nullable = false)

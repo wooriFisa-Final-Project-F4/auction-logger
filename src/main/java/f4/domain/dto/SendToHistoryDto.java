@@ -1,11 +1,11 @@
-package f4.domain.dto.response;
+package f4.domain.dto;
 
 import javax.validation.constraints.NotNull;
 
 import lombok.*;
 
 @Data
-public class ProductDto {
+public class SendToHistoryDto {
 
   @NotNull
   private Long productId;

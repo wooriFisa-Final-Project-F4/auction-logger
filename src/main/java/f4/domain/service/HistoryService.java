@@ -1,13 +1,13 @@
 package f4.domain.service;
 
 import f4.domain.dto.response.HistoryDto;
-import f4.domain.dto.response.ProductDto;
+import f4.domain.dto.SendToHistoryDto;
 
 import java.util.List;
 
 public interface HistoryService {
 
-  void makeAndSave(ProductDto product);
+  void makeAndSave(SendToHistoryDto product);
 
   List<HistoryDto> findAll();
 
