@@ -6,19 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-@Getter@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@ToString
+import lombok.*;
+
+@Data
 @Entity
+@Builder
 @Table(name = "history")
 public class HistoryEntity {
 
@@ -30,10 +23,10 @@ public class HistoryEntity {
   private Long productId;
   @Column(name = "product_name", nullable = false)
   private String productName;
-  @Column(name = "product_image", nullable = false)
-  private String productImage;
-  @Column(name = "user_email")
-  private String userEmail;
+  @Column(name = "product_main_image", nullable = false)
+  private String productMainImage;
+  @Column(name = "bid_user_email")
+  private String bidUserEmail;
   @Column(name = "user_id", nullable = false)
   private Long userId;
   @Column(name = "bid_price", nullable = false)
