@@ -2,7 +2,7 @@ package f4.domain.service.impl;
 
 import f4.domain.dto.response.HistoryDto;
 import f4.domain.dto.SendToHistoryDto;
-import f4.domain.persist.entity.HistoryEntity;
+import f4.domain.persist.entity.History;
 import f4.domain.persist.repository.HistoryRepository;
 import f4.domain.service.HistoryService;
 import lombok.RequiredArgsConstructor;
@@ -26,8 +26,8 @@ public class HistoryServiceImpl implements HistoryService {
     repository.save(historyBuilder(product));
   }
 
-  public HistoryEntity historyBuilder(SendToHistoryDto product) {
-    return HistoryEntity.builder()
+  public History historyBuilder(SendToHistoryDto product) {
+    return History.builder()
         .productId(product.getProductId())
         .productName(product.getProductName())
         .productMainImage(product.getProductImage())
