@@ -2,10 +2,9 @@ package f4.domain.dto.response;
 
 import java.time.LocalDateTime;
 
-import lombok.*;
+import lombok.Data;
 
 @Data
-
 public class HistoryDto {
 
   private long productId;
