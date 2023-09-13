@@ -25,7 +25,7 @@ Confluent Kafka를 이용한 프로젝트입니다. 이 프로젝트는 다음�
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-plain.svg" width="40" height="40"/>
 </p>
 
-## 데이터베이스
+## DataBase
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg" width="40" height="40"/>
           
