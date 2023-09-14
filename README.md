@@ -1,4 +1,4 @@
-# Auction-Logger
+# Auction-Logger 
 ![image](https://user-images.githubusercontent.com/119636839/267515508-5e1d0209-aec5-41c8-8211-337bf50f87dd.png)
 > Auction-Price-Updater에서 발행한 이벤트를 구독하는 컨슈머가 포함된 서버입니다.
 <br>
