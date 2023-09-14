@@ -1,46 +1,71 @@
-# Auction-Service
+# Auction-Logger
+![image](https://user-images.githubusercontent.com/119636839/267515508-5e1d0209-aec5-41c8-8211-337bf50f87dd.png)
+> Auction-Price-Updater에서 발행한 이벤트를 구독하는 컨슈머가 포함된 서버입니다.
+<br>
 
-## Overview
 
-Confluent Kafka를 이용한 프로젝트입니다. 이 프로젝트는 다음과 같은 주요 기능 및 라이브러리를 활용하고 있습니다
+## 🛠️ Dependency
+|       기능       | 기술 스택                                                                       |
+|:--------------:|:----------------------------------------------------------------------------|
+|  Spring Boot   | - Spring Framework 2.7.15<br> - Java 17 <br> - Gradle 8.0 <br> - Spring Web |
+|  Spring Cloud  | - Eureka <br> - Config <br> - Gateway <br> - OpenFeign        |
+|Kafka|- Confluent Kafka 7.4.0<br> - Zookeeper 7.4.0 |
+|    Database    | - Mysql 8.33                      |
+|      ORM       | - JPA                             |
 
-- Confluent Kafka
-- OpenFeign Client
-- Eureka Client for service discovery
-- Spring Cloud Config for centralized configuration
+<br>
 
-## Requirements
+## 📝 Auction-Logger 기능
 
-- Java 17
-- Spring Boot
-- Confluent Kafka
-- OpenFeign Client
+|   기능   | 내용                                                                                                 |
+|:------:|:---------------------------------------------------------------------------------------------------|
+|  입찰 결과 저장     | Record의 Value를 사용하여 입찰 결과 저장     |
 
-## Stack
+<br>
 
-<p align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="java" width="40" height="40"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="spring" width="40" height="40"/>
-  <img src="https://companieslogo.com/img/orig/CFLT-c4a50286.png?t=1627024622" alt="redis" width="40" height="40"/>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-plain.svg" width="40" height="40"/>
-</p>
+```
+- 입찰 결과 (SUCCESS, FAIL, ERROR)포함된 입찰 요청 정보 저장
+```
+</details>
+<br>
 
-## Database
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg" width="40" height="40"/>
-          
 
-## Mechanism
+## Auction-Logger Prooperties
 
-![image](https://github.com/wooriFisa-Final-Project-F4/auction-logger/assets/119636839/5e1d0209-aec5-41c8-8211-337bf50f87dd)
+```properties
+#Basic
+server.port=[port 번호]
+server.servlet.context-path=[base url]
+# EUREKA
+eureka.client.service-url.defaultZone=[Eureka-Server-ip]
 
-Auction-Price-Updater에서 발행한 Kafka Event의 Value를 사용하여 입찰 결과를 저장<br>
-경매 내역 조회
+# MYSQL
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=[database url]
+spring.datasource.username=[user name]
+spring.datasource.password=[user password]
 
-- Event의 Value 데이터 정제 후 저장
-- 관리자가 경매 내역 조회 시 전체 경매 내역 반환
-- 사용자가 경매 내역 조회 시 사용자의 경매 내역 반환
+# JPA
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.hibernate.ddl-auto=update
 
-<br><br>
+# KAFAK PRODUCER 
+spring.kafka.bootstrap-servers=[Kafka Broker ip]
+spring.kafka.consumer.group-id=[Consumer group id]
+spring.kafka.consumer.auto-offset-reset=earliest
+spring.kafka.consumer.key-deserializer=org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+spring.kafka.consumer.value-deserializer=org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+spring.kafka.consumer.properties.spring.deserializer.key.delegate.class=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.properties.spring.deserializer.value.delegate.class=org.springframework.kafka.support.serializer.JsonDeserializer
+spring.kafka.consumer.properties.spring.json.trusted.packages=*
 
----
+# LOGGING
+logging.pattern.console=%green(%d{yyyy-MM-dd HH:mm:ss.SSS}) %magenta([%thread]) %highlight(%-5level) %cyan(%logger{36}) - %yellow(%msg%n)
+logging.level.org.hibernate.SQL=debug
+logging.file.path=logs
+
+#Value
+kafka.topic.name=[Consumer topic name]
+```
+
