@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Getter
 @Setter
@@ -18,6 +19,7 @@ public class HistoryDto {
   private String productName;
   private String productImage;
   private String bidPrice;
+  @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
   private LocalDateTime bidTime;
   private String bidStatus;
 }
