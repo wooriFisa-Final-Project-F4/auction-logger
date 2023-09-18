@@ -42,7 +42,7 @@ public class HistoryServiceImpl implements HistoryService {
   @Override
   public List<HistoryDto> findAll() {
     return repository.findAll().stream()
-        .map(e -> modelMapper.map(e, HistoryDto.class))
+        .map(e -> new HistoryDto(e) )
         .collect(Collectors.toList());
   }
 
@@ -50,7 +50,7 @@ public class HistoryServiceImpl implements HistoryService {
   @Override
   public List<HistoryDto> findByUserId(Long id) {
     return repository.findByUserId(id).stream()
-        .map(e -> modelMapper.map(e, HistoryDto.class))
+        .map(e -> new HistoryDto(e))
         .collect(Collectors.toList());
   }
 

@@ -1,5 +1,6 @@
 package f4.domain.dto.response;
 
+import f4.domain.persist.entity.History;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,4 +23,14 @@ public class HistoryDto {
   @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
   private LocalDateTime bidTime;
   private String bidStatus;
+
+  public HistoryDto(History history){
+    productId = history.getProductId();
+    productName = history.getProductName();
+    productImage = history.getProductMainImage();
+    bidPrice = history.getBidPrice();
+    bidTime = history.getBidTime();
+    bidStatus = history.getBidStatus();
+  }
+
 }
