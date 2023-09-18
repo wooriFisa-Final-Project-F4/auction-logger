@@ -1,5 +1,6 @@
 package f4.domain.dto;
 
+import java.time.LocalDateTime;
 import javax.validation.constraints.NotNull;
 
 import lombok.*;
@@ -19,7 +20,7 @@ public class SendToHistoryDto {
   @NotNull
   private String bidPrice;
   @NotNull
-  private String bidTime;
+  private LocalDateTime bidTime;
   @NotNull
   private String bidStatus;
 }

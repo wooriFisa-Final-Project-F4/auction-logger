@@ -1,12 +1,12 @@
 package f4.domain.persist.entity;
 
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -39,7 +39,7 @@ public class History {
     @Column(name = "bid_price", nullable = false)
     private String bidPrice;
     @Column(name = "bid_time", nullable = false)
-    private String bidTime;
+    private LocalDateTime bidTime;
     @Column(name = "bid_status", nullable = false)
     private String bidStatus;
 }
