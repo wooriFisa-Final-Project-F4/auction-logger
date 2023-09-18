@@ -42,7 +42,7 @@ public class HistoryServiceImpl implements HistoryService {
   @Override
   public List<HistoryDto> findAll() {
     return repository.findAll().stream()
-        .map(e -> new HistoryDto(e) )
+        .map(e -> modelMapper.map(e, HistoryDto.class))
         .collect(Collectors.toList());
   }
 
