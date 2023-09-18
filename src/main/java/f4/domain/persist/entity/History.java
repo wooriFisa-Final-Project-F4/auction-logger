@@ -1,17 +1,22 @@
 package f4.domain.persist.entity;
 
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -35,7 +40,8 @@ public class History {
     @Column(name = "bid_price", nullable = false)
     private String bidPrice;
     @Column(name = "bid_time", nullable = false)
-    private String bidTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime bidTime;
     @Column(name = "bid_status", nullable = false)
     private String bidStatus;
 }
